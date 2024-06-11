@@ -79,8 +79,9 @@ body {
     height: 200px;
     margin-right: 20px;
     border-radius: 4px;
-    object-fit: cover;
+    object-fit: contain;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transform-origin: left; /* Scale from the left */
 }
 
 .additional-publications {
@@ -101,18 +102,23 @@ body {
     height: 200px;
     margin-right: 20px;
     border-radius: 4px;
-    object-fit: cover;
+    object-fit: contain;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease; /* Add transition */
+    transform-origin: left; /* Scale from the left */
 }
 
-.enlarge {
-    transform: scale(1.3); /* Enlarge the image */
+.additional-publication img:hover, .publications img:hover {
+    transform: scale(2.5); /* Make the image slightly bigger on hover */
 }
 
 .additional-publication p {
     margin: 0; /* Remove default margin for paragraphs */
     margin-left: 10px; /* Add margin to the text */
+}
+
+.publications li, .additional-publications li {
+    list-style: none;
 }
 
 .read-more {
@@ -172,6 +178,142 @@ body {
     color: #999;
 }
 
+.education {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.education-item {
+    flex: 1 1 calc(33.33% - 20px);
+    margin-bottom: 20px;
+    text-align: center;
+    animation: slideIn 1s ease;
+}
+
+.education-info {
+    margin-top: 10px;
+}
+
+.logo {
+    width: 100px; /* Adjust size as needed */
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.1); /* Increase size on hover */
+}
+
+.links_mail {
+    margin-top: 10px;
+}
+
+.links_mail a {
+    margin-right: 10px;
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.links_mail a:hover {
+    color: #0073e6;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 0.9em;
+    color: #999;
+    animation: fadeIn 1.5s ease;
+}
+
+.projects {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.project-item {
+    flex: 1 1 100%;
+    margin-bottom: 20px;
+    text-align: center;
+    animation: fadeIn 1.5s ease;
+}
+
+.project-image {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.project-image:hover {
+    transform: scale(1.05);
+}
+
+.project-info {
+    margin-top: 10px;
+    font-size: 1.1em;
+    color: #555;
+}
+
+.project-title {
+    font-weight: 500;
+}
+
+.carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.carousel-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.course-list {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.course-list li {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 10px;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .bio {
@@ -193,5 +335,41 @@ body {
     .links a {
         display: block;
         margin: 10px 0;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        padding: 40px;
+    }
+    .header h1 {
+        font-size: 3em;
+    }
+    .bio p {
+        font-size: 1.4em;
+    }
+    .section h2 {
+        font-size: 2em;
+    }
+    .section p, .section ul {
+        font-size: 1.2em;
+    }
+}
+
+@media (min-width: 1600px) {
+    .container {
+        max-width: 1400px;
+    }
+    .header h1 {
+        font-size: 3.5em;
+    }
+    .bio p {
+        font-size: 1.6em;
+    }
+    .section h2 {
+        font-size: 2.2em;
+    }
+    .section p, .section ul {
+        font-size: 1.3em;
     }
 }
