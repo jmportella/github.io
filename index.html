@@ -1,232 +1,1103 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jhon Manuel Portella Delgado – Nonlinear Adaptive Control, Robotics & Machine Learning</title>
-    <meta name="description" content="Official website of Jhon Manuel Portella Delgado, Ph.D. candidate at the University of Maryland, Baltimore County. Specializing in nonlinear adaptive control, robotics, optimization, and machine learning. View publications, projects, and teaching portfolio.">
-    <meta name="keywords" content="Jhon Manuel Portella Delgado, nonlinear adaptive control, robotics, machine learning, UMBC, control theory, automation, optimization, mechatronics, research publications">
-    <meta name="author" content="Jhon Manuel Portella Delgado">
-    <link rel="canonical" href="https://www.yourwebsite.com/">
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#faf8f3">
 
-    <!-- Structured Data for Google -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Jhon Manuel Portella Delgado",
-      "image": "https://www.yourwebsite.com/profile.jpg",
-      "jobTitle": "Ph.D. Candidate in Mechanical Engineering",
-      "affiliation": {
-        "@type": "CollegeOrUniversity",
-        "name": "University of Maryland, Baltimore County"
-      },
-      "alumniOf": [
-        {"@type": "CollegeOrUniversity", "name": "University of Melbourne"},
-        {"@type": "CollegeOrUniversity", "name": "Pontificia Universidad Católica del Perú"}
-      ],
-      "email": "mailto:jportella@umbc.edu",
-      "url": "https://www.yourwebsite.com",
-      "sameAs": [
-        "https://scholar.google.com/citations?user=pMqTp2oAAAAJ&hl=en",
-        "https://www.linkedin.com/in/jhon-manuel-portella-delgado-94499b13a/",
-        "https://www.researchgate.net/profile/Jhon-Portella"
-      ]
-    }
-    </script>
+<title>Jhon Manuel Portella Delgado | Adaptive Control & Autonomous Systems</title>
+<meta name="description" content="Jhon Manuel Portella Delgado — Postdoctoral Research Fellow at the University of Michigan. Nonlinear adaptive control, safe autonomous systems, predictive control, and aerospace engineering.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --gold:#c79b48;
+  --gold-deep:#98702c;
+  --gold-light:#e8d5a5;
+  --ink:#22211f;
+  --muted:#77736c;
+  --cream:#faf8f3;
+  --white:#fff;
+  --line:#e9e3d8;
+}
+
+* {box-sizing:border-box}
+html {scroll-behavior:smooth}
+body {
+  margin:0;
+  background:var(--white);
+  color:var(--ink);
+  font-family:"DM Sans",sans-serif;
+  line-height:1.75;
+}
+a {color:inherit;text-decoration:none}
+img {max-width:100%}
+button,input {font:inherit}
+button {cursor:pointer}
+.container {width:min(1200px,calc(100% - 48px));margin:auto}
+section {padding:108px 0;scroll-margin-top:110px}
+h1,h2,h3 {
+  font-family:"Outfit",sans-serif;
+  line-height:1.12;
+  letter-spacing:-.045em;
+}
+h1 {font-size:clamp(52px,6.7vw,100px);font-weight:700;margin:20px 0 28px}
+h2 {font-size:clamp(38px,4.6vw,64px);font-weight:600;margin:15px 0 28px}
+h3 {font-size:24px;font-weight:600}
+p {color:var(--muted)}
+.gold {color:var(--gold)}
+.eyebrow {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  color:var(--gold-deep);
+  font-family:"DM Mono",monospace;
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+.eyebrow::before {
+  content:"";
+  width:27px;
+  height:2px;
+  background:var(--gold);
+  flex-shrink:0;
+}
+.section-intro {
+  max-width:750px;
+  font-size:18px;
+  line-height:1.85;
+  margin-bottom:46px;
+}
+.btn {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  padding:15px 24px;
+  border:1px solid var(--gold);
+  border-radius:3px;
+  color:var(--gold-deep);
+  background:transparent;
+  font-family:"Montserrat",sans-serif;
+  font-size:12px;
+  font-weight:700;
+  transition:background .25s,color .25s,transform .25s;
+}
+.btn:hover {background:var(--gold);color:white;transform:translateY(-2px)}
+.btn.primary {background:var(--gold);color:white}
+.btn.primary:hover {background:var(--gold-deep)}
+a:focus-visible,button:focus-visible,input:focus-visible {
+  outline:3px solid var(--gold-light);
+  outline-offset:4px;
+}
+
+/* NAVIGATION */
+nav {
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(255,255,255,.97);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner {
+  min-height:94px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:28px;
+}
+.identity {display:flex;align-items:center;gap:14px;flex-shrink:0}
+.logo {width:60px;height:60px;transition:transform .3s}
+.identity:hover .logo {transform:translateY(-2px)}
+.identity-name {
+  display:block;
+  font-family:"Montserrat",sans-serif;
+  font-size:23px;
+  font-weight:800;
+  letter-spacing:-.9px;
+  line-height:1;
+  transition:color .25s;
+}
+.identity:hover .identity-name {color:var(--gold)}
+.identity-subtitle {
+  display:block;
+  margin-top:7px;
+  color:var(--gold-deep);
+  font-family:"DM Mono",monospace;
+  font-size:9px;
+  letter-spacing:1.2px;
+}
+.nav-links {
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:clamp(13px,1.7vw,27px);
+  flex-wrap:wrap;
+}
+.nav-links a {
+  position:relative;
+  display:inline-block;
+  padding:12px 0;
+  color:#111;
+  font-family:"Montserrat",sans-serif;
+  font-size:15px;
+  font-weight:700;
+  letter-spacing:-.35px;
+  transition:color .25s;
+}
+.nav-links a::after {
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:5px;
+  width:0;
+  height:2px;
+  background:var(--gold);
+  transition:width .28s;
+}
+.nav-links a:hover,.nav-links a.active {color:var(--gold-deep)}
+.nav-links a:hover::after,.nav-links a.active::after {width:100%}
+
+/* HERO */
+.hero {
+  min-height:720px;
+  display:flex;
+  align-items:center;
+  background:
+    radial-gradient(circle at 82% 15%,rgba(199,155,72,.13),transparent 38%),
+    linear-gradient(145deg,#fff,var(--cream));
+  padding:75px 0 90px;
+}
+.hero-grid {
+  display:grid;
+  grid-template-columns:1.18fr .82fr;
+  align-items:center;
+  gap:70px;
+}
+.hero-description {font-size:18px;max-width:650px;line-height:1.9}
+.hero-actions {display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.hero-photo {position:relative;max-width:430px;margin-left:auto}
+.hero-photo::before {
+  content:"";
+  position:absolute;
+  inset:22px -18px -18px 22px;
+  border:2px solid var(--gold);
+  border-radius:190px 190px 8px 8px;
+}
+.hero-photo img {
+  position:relative;
+  display:block;
+  width:100%;
+  aspect-ratio:.83;
+  object-fit:cover;
+  border-radius:190px 190px 8px 8px;
+  box-shadow:0 30px 70px rgba(80,65,30,.13);
+}
+.hero-caption {
+  text-align:center;
+  margin-top:28px;
+  color:var(--gold-deep);
+  font-family:"DM Mono",monospace;
+  font-size:10px;
+  letter-spacing:1.4px;
+}
+.stats {
+  display:flex;
+  flex-wrap:wrap;
+  gap:35px;
+  margin-top:42px;
+  padding-top:24px;
+  border-top:1px solid var(--line);
+}
+.stat strong {display:block;font-family:"Outfit",sans-serif;font-size:26px}
+.stat span {font-size:12px;color:var(--muted)}
+
+/* BICOPTER */
+.featured-section {background:white;padding:92px 0 110px}
+.featured-heading {
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:30px;
+  margin-bottom:35px;
+}
+.featured-heading h2 {margin-bottom:0}
+.featured-index {
+  color:var(--gold-deep);
+  font-family:"DM Mono",monospace;
+  font-size:11px;
+  letter-spacing:1.5px;
+}
+.featured-grid {
+  display:grid;
+  grid-template-columns:1.3fr .7fr;
+  gap:48px;
+  align-items:center;
+}
+.animation-frame {
+  padding:13px;
+  background:white;
+  border:1px solid var(--gold-light);
+  box-shadow:0 25px 60px rgba(80,60,20,.09);
+}
+.animation-video-wrap {position:relative;overflow:hidden;background:#f8f8f8}
+.animation-frame video {
+  display:block;
+  width:100%;
+  height:auto;
+  min-height:260px;
+  object-fit:contain;
+  background:#f8f8f8;
+}
+.animation-label {
+  position:absolute;
+  top:14px;
+  left:14px;
+  padding:9px 13px;
+  color:white;
+  background:rgba(34,33,31,.88);
+  font-family:"DM Mono",monospace;
+  font-size:10px;
+  letter-spacing:1px;
+  pointer-events:none;
+}
+.animation-caption {margin:14px 5px 0;font-size:12px}
+.featured-description {border-left:2px solid var(--gold-light);padding-left:28px}
+.featured-description h3 {font-size:clamp(26px,2.6vw,39px);margin:22px 0 25px}
+.featured-description p {font-size:15px;line-height:1.9}
+.featured-description .btn {margin-top:15px}
+
+/* CONTENT SECTIONS */
+.light-section {background:var(--cream)}
+.about-grid {display:grid;grid-template-columns:.8fr 1.2fr;gap:75px}
+.about-grid p {font-size:16px}
+.research-grid {display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.research-card {
+  padding:33px;
+  background:white;
+  border:1px solid var(--line);
+  border-top:3px solid var(--gold);
+  transition:.3s;
+}
+.research-card:hover {transform:translateY(-6px);box-shadow:0 20px 45px rgba(85,65,20,.09)}
+.research-number {
+  font-family:"DM Mono",monospace;
+  font-size:11px;
+  color:var(--gold-deep);
+  letter-spacing:1.5px;
+}
+.research-card h3 {font-size:25px;margin:22px 0 13px}
+.research-card p {font-size:14px}
+
+.project-grid {display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.project-card {
+  overflow:hidden;
+  background:white;
+  border:1px solid var(--line);
+  transition:.3s;
+}
+.project-card:hover {box-shadow:0 20px 45px rgba(85,65,20,.09)}
+.project-card img {
+  display:block;
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  transition:transform .5s;
+}
+.project-card:hover img {transform:scale(1.045)}
+.project-content {padding:26px}
+.project-category {
+  color:var(--gold-deep);
+  font-family:"DM Mono",monospace;
+  font-size:10px;
+  letter-spacing:1.3px;
+}
+.project-content h3 {font-size:22px}
+.project-content p {font-size:14px}
+
+/* PUBLICATIONS */
+.publication-controls {display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px}
+.publication-controls input {
+  flex:1;
+  min-width:230px;
+  padding:14px 17px;
+  border:1px solid var(--line);
+}
+.filter {
+  padding:11px 16px;
+  background:white;
+  border:1px solid var(--line);
+  color:var(--muted);
+  font-size:12px;
+}
+.filter:hover {border-color:var(--gold);color:var(--gold-deep)}
+.filter.active {background:var(--gold);color:white;border-color:var(--gold)}
+.publication-list {display:grid;gap:12px}
+.publication {
+  padding:21px 24px;
+  background:white;
+  border:1px solid var(--line);
+  border-left:3px solid var(--gold);
+}
+.publication-title {font-family:"Outfit",sans-serif;font-size:16px;font-weight:600;line-height:1.5}
+.publication-meta {margin-top:7px;font-size:12px;color:var(--muted)}
+.publication-status {
+  display:inline-block;
+  margin-top:9px;
+  color:var(--gold-deep);
+  font-family:"DM Mono",monospace;
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+}
+.publication-count {margin-top:20px;font-size:13px}
+
+/* EXPERIENCE */
+.timeline {border-left:1px solid var(--gold-light);margin-left:10px;padding-left:35px}
+.timeline-item {position:relative;padding-bottom:34px}
+.timeline-item::before {
+  content:"";
+  position:absolute;
+  left:-41px;
+  top:7px;
+  width:11px;
+  height:11px;
+  background:var(--gold);
+  border-radius:50%;
+}
+.timeline-date {color:var(--gold-deep);font-family:"DM Mono",monospace;font-size:11px}
+.timeline-item h3 {font-size:22px;margin:8px 0}
+.timeline-item p {font-size:14px;margin:5px 0}
+
+/* DEFENSE VIDEO */
+.video-grid {
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:50px;
+  align-items:center;
+}
+.video-wrap {
+  position:relative;
+  aspect-ratio:16/9;
+  overflow:hidden;
+  background:#171717;
+  border:1px solid var(--gold-light);
+  box-shadow:0 25px 50px rgba(70,50,20,.1);
+}
+.video-wrap video,
+.video-wrap iframe {
+  display:block;
+  width:100%;
+  height:100%;
+  border:0;
+}
+.video-wrap video {object-fit:contain}
+.defense-video-label {
+  position:absolute;
+  top:14px;
+  left:14px;
+  z-index:2;
+  padding:9px 13px;
+  color:white;
+  background:rgba(34,33,31,.82);
+  font-family:"DM Mono",monospace;
+  font-size:10px;
+  letter-spacing:1px;
+  pointer-events:none;
+}
+.video-note {font-size:12px;margin-top:12px}
+.video-note a {color:var(--gold-deep);text-decoration:underline}
+.video-note a:hover {color:var(--ink)}
+
+/* TEACHING AND CONTACT */
+.teaching-grid {display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.teaching-card {
+  padding:28px;
+  background:white;
+  border:1px solid var(--line);
+  border-top:2px solid var(--gold-light);
+}
+.teaching-card h3 {font-size:21px}
+.teaching-card p {font-size:14px}
+.contact-section {text-align:center;background:var(--cream)}
+.contact-section .eyebrow {justify-content:center}
+.contact-section p {max-width:600px;margin:0 auto 28px}
+.contact-section .hero-actions {justify-content:center}
+footer {padding:30px 0;border-top:1px solid var(--line)}
+.footer-inner {
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:20px;
+  font-size:12px;
+  color:var(--muted);
+}
+.footer-inner a {margin-left:15px}
+.footer-inner a:hover {color:var(--gold)}
+
+/* REVEAL */
+.reveal {opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+.reveal.visible {opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
+@media(max-width:1100px) {
+  .nav-inner {flex-wrap:wrap;justify-content:center;padding:15px 0}
+  .nav-links {justify-content:center}
+  .nav-links a {font-size:14px}
+}
+@media(max-width:1000px) {
+  .hero-grid,.about-grid,.featured-grid,.video-grid {grid-template-columns:1fr}
+  .hero-photo {max-width:370px;margin:30px auto 0}
+  .featured-description {
+    border-left:0;
+    border-top:2px solid var(--gold-light);
+    padding:25px 0 0;
+  }
+  .research-grid,.project-grid {grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:650px) {
+  section {padding:72px 0}
+  .container {width:calc(100% - 32px)}
+  .hero {min-height:auto}
+  .research-grid,.project-grid,.teaching-grid {grid-template-columns:1fr}
+  .featured-heading {display:block}
+  .featured-index {display:block;margin-top:18px}
+  .animation-frame {padding:8px}
+  .animation-frame video {min-height:180px}
+  .animation-label,.defense-video-label {font-size:8px;padding:6px 9px;top:9px;left:9px}
+  .identity-name {font-size:19px}
+  .identity-subtitle {font-size:8px}
+  .logo {width:50px;height:50px}
+  .nav-links {gap:10px 17px}
+  .nav-links a {font-size:12px}
+}
+@media(prefers-reduced-motion:reduce) {
+  html {scroll-behavior:auto}
+  .reveal {opacity:1;transform:none}
+  * {transition-duration:.01ms !important}
+}
+</style>
 </head>
+
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>Jhon Manuel Portella Delgado</h1>
-            <div class="links">
-                <!-- href="cv.pdf" download>Download CV -->
-                <a href="https://scholar.google.com/citations?user=pMqTp2oAAAAJ&hl=en" target="https://scholar.google.com/citations?user=pMqTp2oAAAAJ&hl=en">Google Scholar</a>
-                <a href="https://www.linkedin.com/in/jhon-manuel-portella-delgado-94499b13a/?locale=en_US" target="https://www.linkedin.com/in/jhon-manuel-portella-delgado-94499b13a/?locale=en_US">LinkedIn</a>
-                <a href="https://www.researchgate.net/profile/Jhon-Portella/research" target="https://www.researchgate.net/profile/Jhon-Portella/research">ResearchGate</a>
-                <a href="https://drive.google.com/file/d/19aSvjZX5mLSLUpAFpzp1QJRq4pg_YwAD/view?usp=sharing" target="https://drive.google.com/file/d/19aSvjZX5mLSLUpAFpzp1QJRq4pg_YwAD/view?usp=sharing">Research Statement</a>
-                <a href="https://drive.google.com/file/d/1HBNqX1q0Jt8YyYooOBaTZ_ueCe51-li7/view?usp=sharing" target="https://drive.google.com/file/d/1HBNqX1q0Jt8YyYooOBaTZ_ueCe51-li7/view?usp=sharing">Teaching Statement</a>
-                <a href="https://drive.google.com/file/d/1wWfJ8D4wMwMJrNICSGS90O62ojaLnZ_p/view?usp=sharing" target="https://drive.google.com/file/d/1wWfJ8D4wMwMJrNICSGS90O62ojaLnZ_p/view?usp=sharing">Latest CV</a>
-            </div>
-            <div class="links_mail">
-                <a href="mailto:jportella@pucp.edu.pe">jportella@pucp.edu.pe</a>
-                <a href="mailto:jportella@umbc.edu">jportella@umbc.edu</a>
-            </div>
-        </div>
-        <div class="bio">
-            <div class="profile-image" style="background-image: url('profile.jpg');"></div>
-            <p>Hello! I am Jhon Portella, a Ph.D candidate at UMBC. My research interests include nonlinear adaptive control, optimization and machine learning. I have a passion for research and development and exploring new algorithms, and I am dedicated to advancing automation technologies and robotics. Feel free to explore my website to learn more about my work, publications, and teaching experience.</p>
-        </div>
-        <div class="section">
-            <h2>Education</h2>
-            <div class="education">
-                <div class="education-item">
-                    <img src="umbc_logo.png" alt="UMBC Logo" class="logo">
-                    <div class="education-info">
-                        <p>Ph.D in Mechanical Engineering: Control</p>
-                        <p>University of Maryland Baltimore County</p>
-                        <p>2022 - Current</p>
-                    </div>
-                </div>
-                <div class="education-item">
-                    <img src="unimelb_logo.png" alt="University of Melbourne Logo" class="logo">
-                    <div class="education-info">
-                        <p>Master of Engineering: Mechatronics</p>
-                        <p>University of Melbourne</p>
-                        <p>2014 - 2016</p>
-                    </div>
-                </div>
-                <div class="education-item">
-                    <img src="pucp_logo.png" alt="PUCP Logo" class="logo">
-                    <div class="education-info">
-                        <p>Bachelor of Science: Mechatronics</p>
-                        <p>Pontifical Catholic University of Peru</p>
-                        <p>2008 - 2012</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="section">
-            <h2>Publications</h2>
-            <ul class="publications">
-                <li>
-                    <div class="publication">
-                        <img src="RCAC_ES.jpg" alt="Publication 1">
-                        <p>Retrospective Cost-based Extremum Seeking Control with Vanishing Perturbation for Online Output Minimization</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="publication">
-                        <img src="Adaptive_Backstepping.jpg" alt="Publication 2">
-                        <p>Adaptive Backstepping Control of a Bicopter in Pure Feedback Form with Dynamic Extension</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="publication">
-                        <img src="Pseudo_inverse_IOL.jpg" alt="Publication 3">
-                        <p>Circumventing Unstable Zero Dynamics in Input-Output Linearization of Longitudinal Flight Dynamics</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="publication">
-                        <img src="ADIOL.jpg" alt="Publication 4">
-                        <p>Adaptive Nonlinear Control of a Bicopter with Unknown Dynamics</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="publication">
-                        <img src="zeros.jpg" alt="Publication 5">
-                        <p>Computing Invariant Zeros of a Linear System Using State-Space Realization</p>
-                    </div>
-                </li>
-            </ul>
-            <ul class="additional-publications" style="display: none;"> <!-- Initially hidden -->
-                <li class="additional-publication">
-                    <div class="publication">
-                        <img src="Image Processing.jpg" alt="Publication 6">
-                        <p>Image Processing Method to Estimate Water Quality Parameter</p>
-                    </div>
-                </li>
-                <li class="additional-publication">
-                    <div class="publication">
-                        <img src="Air pollution.jpg" alt="Publication 7">
-                        <p>Air pollution software architecture design and modeling: A Peruvian case</p>
-                    </div>
-                </li>
-                <li class="additional-publication">
-                    <div class="publication">
-                        <img src="computer vision.jpg" alt="Publication 8">
-                        <p>Computer vision technique to improve the color ratio in estimating the concentration of free chlorine</p>
-                    </div>
-                </li>
-                <li class="additional-publication">
-                    <div class="publication">
-                        <img src="performance based.jpg" alt="Publication 9">
-                        <p>Performance-based software architecture design and blockchain as a service for Peruvian e-government</p>
-                    </div>
-                </li>
-                <li class="additional-publication">
-                    <div class="publication">
-                        <img src="backstepping pure feedback.jpg" alt="Publication 10">
-                        <p>Dynamic extension for adaptive backstepping control of uncertain pure-feedback systems</p>
-                    </div>
-                </li>
-                <li class="additional-publication">
-                    <div class="publication">
-                        <img src="cyberphisical system.jpg" alt="Publication 11">
-                        <p> Cyber-physical cloud system for monitoring urban noise pollution under IoT platform</p>
-                    </div>
-                </li>
-                <li class="additional-publication">
-                    <div class="publication">
-                        <img src="Recyglass.jpg" alt="Publication 12">
-                        <p> RecyGlass, A Low-cost System for Recycling Glass Bottles in a Distinctive Way</p>
-                    </div>
-                </li>
-                <li class="additional-publication">
-                    <div class="publication">
-                        <img src="Nonlinear control hand.jpg" alt="Publication 13">
-                        <p> Nonlinear observer based control design for an under-actuated compliant robotic hand</p>
-                    </div>
-                </li>
-            </ul>
-            <div class="read-more">
-                <button id="read-more-btn">Read More</button>
-            </div>
-        </div>
-        <div class="section">
-            <h2>Projects</h2>
-            <div class="carousel">
-                <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
-                <div class="carousel-container">
-                    <div class="carousel-slide">
-                        <div class="project-item">
-                            <img src="oleo2.jpg" alt="Project 1" class="project-image">
-                            <div class="project-info">
-                                <p class="project-title">Oleo-Hydraulic Projects and Automation</p>
-                                <p>Design and implementation of oleo-hydraulic projects. Installation of sensors, and programming of PLC for the automation of these projects</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-slide">
-                        <div class="project-item">
-                            <img src="autolisp.jpg" alt="Project 2" class="project-image">
-                            <div class="project-info">
-                                <p class="project-title">Design Automation</p>
-                                <p>Design automation using Autolisp and VS Basic in Autocad, Inventor, Solidworks and Catia</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-slide">
-                        <div class="project-item">
-                            <img src="bicopter.jpg" alt="Project 3" class="project-image">
-                            <div class="project-info">
-                                <p class="project-title">Control of Quadcopters and Fixed Wings</p>
-                                <p>Develop nonlinear adaptive controllers for Quadcopters and Fixed Wings</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <button class="next" onclick="moveSlide(1)">&#10095;</button>
-            </div>
-        </div>
-        <div class="section teaching">
-            <h2>Teaching</h2>
-            <ul class="course-list">
-                <li>Automatic Control</li>
-                <li>Graphical Representation for Mechatronics Design</li>
-                <li>Capstone Project</li>
-                <li>Topics on Advanced Robotics</li>
-                <li>Advanced Motion Control</li>
-                <li>Advanced Robotics</li>
-                <li>Oleohydraulics and Pneumatics</li>
-            </ul>
-        </div>
-        <div class="footer">
-            &copy; 2024 Jhon Manuel Portella Delgado. All rights reserved.
-        </div>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="container nav-inner">
+    <a class="identity" href="#home" aria-label="Jhon Portella homepage">
+      <svg class="logo" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="JP monogram">
+        <rect x="2" y="2" width="68" height="68" rx="4" fill="#faf8f3" stroke="#c79b48" stroke-width="1.5"/>
+        <path d="M12 18H40V42C40 55 32 59 20 59H13" fill="none" stroke="#c79b48" stroke-width="4.5"/>
+        <path d="M47 58V18H54C65 18 66 36 54 36H47" fill="none" stroke="#22211f" stroke-width="4.5"/>
+        <path d="M12 11H60" stroke="#c79b48" stroke-width="1.5"/>
+      </svg>
+      <span>
+        <span class="identity-name">PORTELLA</span>
+        <span class="identity-subtitle">CONTROL · AUTONOMY · ENGINEERING</span>
+      </span>
+    </a>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#projects">Projects</a>
+      <a href="#publications">Publications</a>
+      <a href="#experience">Experience</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#contact">Contact</a>
     </div>
-    <script src="script.js"></script>
+  </div>
+</nav>
+
+<main>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow">Aerospace Engineering · University of Michigan</div>
+      <h1>Making complex systems <span class="gold">adapt.</span></h1>
+      <p class="hero-description">
+        I am Jhon Manuel Portella Delgado, a Postdoctoral Research Fellow
+        in Aerospace Engineering at the University of Michigan.
+      </p>
+      <p class="hero-description">
+        My research focuses on nonlinear adaptive control, safe autonomy,
+        and data-driven methods that enable dynamical systems to operate
+        reliably under uncertainty.
+      </p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#demonstration">Watch Research in Motion ↓</a>
+        <a class="btn" href="#research">Explore Research ↗</a>
+        <a class="btn" href="https://drive.google.com/file/d/1wWfJ8D4wMwMJrNICSGS90O62ojaLnZ_p/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Curriculum Vitae ↗</a>
+        <a class="btn" href="https://scholar.google.com/citations?user=pMqTp2oAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar ↗</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><strong>UMich</strong><span>Postdoctoral Research</span></div>
+        <div class="stat"><strong>Ph.D.</strong><span>Mechanical Engineering</span></div>
+        <div class="stat"><strong>Control</strong><span>Theory & Applications</span></div>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="profile.jpg" alt="Portrait of Jhon Portella">
+      <div class="hero-caption">JHON MANUEL PORTELLA DELGADO</div>
+    </div>
+  </div>
+</section>
+
+<!-- BICOPTER -->
+<section id="demonstration" class="featured-section">
+  <div class="container">
+    <div class="eyebrow">01 / Featured Research</div>
+    <div class="featured-heading">
+      <h2>Safe adaptive control <span class="gold">in motion.</span></h2>
+      <span class="featured-index">RESEARCH DEMONSTRATION / 001</span>
+    </div>
+    <p class="section-intro">
+      A visualization of constrained bicopter motion, illustrating
+      the interaction between nonlinear dynamics, feedback control,
+      and safety requirements.
+    </p>
+    <div class="featured-grid">
+      <div class="animation-frame reveal">
+        <div class="animation-video-wrap">
+          <video autoplay muted loop playsinline controls preload="metadata"
+                 poster="bicopter_safe_control.png"
+                 aria-label="Bicopter constrained control simulation">
+            <source src="bicopter_cbf_octagon_constraint.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+          </video>
+          <div class="animation-label">BICOPTER · SAFE CONTROL</div>
+        </div>
+        <p class="animation-caption">
+          Bicopter simulation with prescribed safe operating boundaries
+          and state constraints.
+        </p>
+      </div>
+      <div class="featured-description reveal">
+        <div class="eyebrow">Nonlinear Control · Safety · Adaptation</div>
+        <h3>Keeping uncertain systems within safe boundaries.</h3>
+        <p>Real engineering systems rarely operate under perfectly known conditions.</p>
+        <p>
+          My research investigates how adaptive controllers can regulate
+          nonlinear systems while respecting constraints on their motion
+          and operating states.
+        </p>
+        <p>
+          The bicopter serves as a representative example for studying
+          nonlinear dynamics, uncertain parameters, stability, and safety.
+        </p>
+        <a class="btn" href="#publications">Related Publications ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="light-section">
+  <div class="container about-grid reveal">
+    <div>
+      <div class="eyebrow">02 / About Me</div>
+      <h2>Theory meets <span class="gold">engineering.</span></h2>
+    </div>
+    <div>
+      <p>My work lies at the intersection of control theory, optimization, system identification, and autonomous dynamical systems.</p>
+      <p>I develop adaptive control algorithms for systems whose dynamics are uncertain, nonlinear, or difficult to model accurately.</p>
+      <p>My doctoral research at the University of Maryland, Baltimore County focused on adaptive and safe control of nonlinear systems with multiplicative uncertainty and state constraints.</p>
+      <p>At the University of Michigan, I work with Professor Dennis S. Bernstein on adaptive control, predictive control, extremum seeking, and aerospace applications.</p>
+      <p>Before pursuing my doctoral studies, I worked in industry designing and implementing automated hydraulic systems and engineering design automation solutions for mining and industrial applications.</p>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="container">
+    <div class="eyebrow">03 / Research</div>
+    <h2>Intelligent control. <span class="gold">Real-world uncertainty.</span></h2>
+    <p class="section-intro">
+      My research develops mathematical methods that allow engineered
+      systems to adapt, learn, and maintain performance when their
+      models are incomplete.
+    </p>
+    <div class="research-grid">
+      <article class="research-card reveal">
+        <div class="research-number">01 / ADAPTATION</div>
+        <h3>Nonlinear Adaptive Control</h3>
+        <p>Adaptive backstepping, inversion-free control, and online compensation for uncertain dynamics.</p>
+      </article>
+      <article class="research-card reveal">
+        <div class="research-number">02 / SAFETY</div>
+        <h3>Safe Autonomous Systems</h3>
+        <p>Constraint lifting, stability guarantees, and control methods that respect prescribed operating boundaries.</p>
+      </article>
+      <article class="research-card reveal">
+        <div class="research-number">03 / PREDICTION</div>
+        <h3>Predictive Adaptive Control</h3>
+        <p>Data-driven identification and predictive optimization for nonlinear dynamical systems.</p>
+      </article>
+      <article class="research-card reveal">
+        <div class="research-number">04 / OPTIMIZATION</div>
+        <h3>Extremum Seeking</h3>
+        <p>Online optimization and adaptive command generation without requiring an explicit performance model.</p>
+      </article>
+      <article class="research-card reveal">
+        <div class="research-number">05 / AEROSPACE</div>
+        <h3>Aerospace Control</h3>
+        <p>Flight control, constrained guidance, stabilization, and autonomous aerospace systems.</p>
+      </article>
+      <article class="research-card reveal">
+        <div class="research-number">06 / FUTURE RESEARCH</div>
+        <h3>Physics-Informed Adaptive Control</h3>
+        <p>Combining physical knowledge with real-time learning to develop reliable adaptive controllers.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="light-section">
+  <div class="container">
+    <div class="eyebrow">04 / Selected Work</div>
+    <h2>From mathematical ideas <span class="gold">to engineering systems.</span></h2>
+    <p class="section-intro">Selected examples of my research and professional engineering work.</p>
+    <div class="project-grid">
+      <article class="project-card reveal">
+        <img src="bicopter.jpg" alt="Multirotor research platform">
+        <div class="project-content">
+          <div class="project-category">NONLINEAR CONTROL</div>
+          <h3>Adaptive Control of Aerial Systems</h3>
+          <p>Development of nonlinear adaptive control methods for uncertain aerial vehicles.</p>
+        </div>
+      </article>
+      <article class="project-card reveal">
+        <img src="Adaptive_Backstepping.jpg" alt="Adaptive control simulation results">
+        <div class="project-content">
+          <div class="project-category">CONTROL THEORY</div>
+          <h3>Adaptive Backstepping</h3>
+          <p>Control of uncertain nonlinear systems using dynamic extension and adaptive methods.</p>
+        </div>
+      </article>
+      <article class="project-card reveal">
+        <img src="oleo.JPG" alt="Industrial hydraulic equipment">
+        <div class="project-content">
+          <div class="project-category">INDUSTRIAL ENGINEERING</div>
+          <h3>Automated Hydraulic Systems</h3>
+          <p>Design and implementation of automated hydraulic solutions for industrial applications.</p>
+        </div>
+      </article>
+      <article class="project-card reveal">
+        <img src="autolisp.jpg" alt="Automated engineering design software">
+        <div class="project-content">
+          <div class="project-category">ENGINEERING AUTOMATION</div>
+          <h3>Design Automation</h3>
+          <p>Automation of engineering drawing, CAD processes, and repetitive design tasks.</p>
+        </div>
+      </article>
+      <article class="project-card reveal">
+        <img src="Recyglass.jpg" alt="Automated glass recycling prototype">
+        <div class="project-content">
+          <div class="project-category">MECHATRONICS</div>
+          <h3>RecyGlass</h3>
+          <p>A low-cost mechatronic system developed for glass-bottle recycling.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="container">
+    <div class="eyebrow">05 / Publications</div>
+    <h2>Selected ideas. <span class="gold">Complete bibliography.</span></h2>
+    <p class="section-intro">
+      Journal papers, conference publications, accepted contributions,
+      and ongoing manuscripts listed in my academic CV.
+    </p>
+    <div class="publication-controls">
+      <input type="search" id="publicationSearch"
+             placeholder="Search publications by title, topic, or venue..."
+             aria-label="Search publications">
+      <button class="filter active" data-filter="all">All</button>
+      <button class="filter" data-filter="journal">Journals</button>
+      <button class="filter" data-filter="conference">Conferences</button>
+      <button class="filter" data-filter="pending">Pending</button>
+    </div>
+    <div class="publication-list" id="publicationList"></div>
+    <p class="publication-count" id="publicationCount"></p>
+    <a class="btn primary"
+       href="https://scholar.google.com/citations?user=pMqTp2oAAAAJ&hl=en"
+       target="_blank" rel="noopener noreferrer">View Google Scholar ↗</a>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="light-section">
+  <div class="container">
+    <div class="eyebrow">06 / Academic Journey</div>
+    <h2>Research, teaching, <span class="gold">and engineering.</span></h2>
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <div class="timeline-date">2026 – Present</div>
+        <h3>Postdoctoral Research Fellow</h3>
+        <p>University of Michigan · Aerospace Engineering</p>
+        <p>Research with Professor Dennis S. Bernstein on adaptive control and aerospace applications.</p>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-date">2026</div>
+        <h3>Ph.D. in Mechanical Engineering</h3>
+        <p>University of Maryland, Baltimore County</p>
+        <p>Dissertation: Adaptive and Safe Control of Nonlinear Systems with Multiplicative Uncertainty and State Constraints.</p>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-date">Teaching Experience</div>
+        <h3>Engineering Education</h3>
+        <p>Pontifical Catholic University of Peru</p>
+        <p>Teaching in automatic control, robotics, dynamics, and engineering design.</p>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-date">2016</div>
+        <h3>M.Eng. in Mechatronics Engineering</h3>
+        <p>University of Melbourne · Australia</p>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-date">Industrial Experience</div>
+        <h3>Automation & Engineering Design</h3>
+        <p>Automated hydraulic systems, engineering design automation, and industrial projects.</p>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-date">2013</div>
+        <h3>B.Sc. in Mechatronics Engineering</h3>
+        <p>Pontifical Catholic University of Peru</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHD DEFENSE: MUTED AUTOPLAY -->
+<section id="defense">
+  <div class="container">
+    <div class="eyebrow">07 / Doctoral Research</div>
+    <h2>My Ph.D. <span class="gold">defense.</span></h2>
+
+    <div class="video-grid">
+      <div class="reveal">
+
+        <div class="video-wrap" id="defensePlayer">
+
+          <!--
+            Preferred playback: local MP4.
+            Put phd_defense.mp4 beside index.html.
+
+            If the MP4 cannot be loaded, JavaScript
+            switches to a muted YouTube embed.
+          -->
+
+          <video
+            id="defenseVideo"
+            autoplay
+            muted
+            loop
+            playsinline
+            controls
+            preload="metadata"
+            aria-label="Jhon Portella PhD defense video"
+          >
+            <source src="phd_defense.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+          </video>
+
+          <div class="defense-video-label" id="defenseLabel">
+            PHD DEFENSE · MUTED PLAYBACK
+          </div>
+
+        </div>
+
+        <p class="video-note">
+          Video plays muted. Use the player controls to enable sound.
+          <a href="https://youtu.be/JTGOvGXJPyw"
+             target="_blank" rel="noopener noreferrer">
+            Open on YouTube ↗
+          </a>
+        </p>
+
+      </div>
+
+      <div class="reveal">
+        <div class="eyebrow">University of Maryland, Baltimore County</div>
+
+        <h3>
+          Adaptive and Safe Control of Nonlinear Systems
+          with Multiplicative Uncertainty and State Constraints
+        </h3>
+
+        <p>
+          My doctoral work develops methods for controlling
+          uncertain nonlinear systems while preserving stability
+          and prescribed safety constraints.
+        </p>
+
+        <a class="btn"
+           href="https://youtu.be/JTGOvGXJPyw"
+           target="_blank" rel="noopener noreferrer">
+          Watch Full Defense ↗
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEACHING -->
+<section id="teaching" class="light-section">
+  <div class="container">
+    <div class="eyebrow">08 / Teaching & Mentoring</div>
+    <h2>Educating the next generation <span class="gold">of engineers.</span></h2>
+    <p class="section-intro">
+      My teaching experience spans control theory, robotics,
+      dynamics, mechatronics, and engineering design.
+    </p>
+    <div class="teaching-grid">
+      <div class="teaching-card reveal">
+        <h3>Automatic Control</h3>
+        <p>Feedback control, system dynamics, stability, and controller design.</p>
+      </div>
+      <div class="teaching-card reveal">
+        <h3>Modern Control</h3>
+        <p>State-space models, controllability, observability, and observer design.</p>
+      </div>
+      <div class="teaching-card reveal">
+        <h3>Advanced Motion Control</h3>
+        <p>Nonlinear systems, adaptive methods, and Lyapunov stability analysis.</p>
+      </div>
+      <div class="teaching-card reveal">
+        <h3>Mechatronics & Engineering Design</h3>
+        <p>Integrated mechanical, electronic, and computational engineering systems.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="container">
+    <div class="eyebrow">09 / Contact</div>
+    <h2>Let's build what <span class="gold">comes next.</span></h2>
+    <p>
+      I welcome research collaborations and conversations about
+      adaptive control, safe autonomous systems, and aerospace engineering.
+    </p>
+    <div class="hero-actions">
+      <a class="btn primary" href="mailto:jhonp@umich.edu">Email Me ↗</a>
+      <a class="btn"
+         href="https://www.linkedin.com/in/jhon-manuel-portella-delgado-94499b13a/"
+         target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+      <a class="btn"
+         href="https://scholar.google.com/citations?user=pMqTp2oAAAAJ&hl=en"
+         target="_blank" rel="noopener noreferrer">Google Scholar ↗</a>
+      <a class="btn"
+         href="https://drive.google.com/file/d/1wWfJ8D4wMwMJrNICSGS90O62ojaLnZ_p/view?usp=drive_link"
+         target="_blank" rel="noopener noreferrer">Curriculum Vitae ↗</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <span>© <span id="year"></span> Jhon Manuel Portella Delgado</span>
+    <div>
+      <a href="#home">Back to top ↑</a>
+      <a href="mailto:jhonp@umich.edu">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+
+/* PUBLICATIONS */
+const publications = [
+  ["Real-time Data-driven Adaptive Lift Regulation in Developing Long-duration Gusts","AIAA Journal of Guidance, Control, and Dynamics","journal","Listed in CV"],
+  ["Adaptive Control of Pure Feedback Systems without Inversion of Parameter Estimates","International Journal of Control","journal","Listed in CV"],
+  ["Certified Safe Tracking via Constraint Lifting for Discrete-Time Nonlinear Systems","IEEE Control Systems Letters","pending","Under review"],
+  ["Where Are the Zeros in a State-Space Realization?","IEEE Control Systems Magazine","pending","Under review"],
+  ["How Do Inner Loops Work? Using Designated Control Inputs to Simplify Control Design","Journal manuscript","pending","In preparation"],
+  ["A Constraint-Lifting Framework for Safe and Stable Nonlinear Control","Journal manuscript","pending","In preparation"],
+  ["Flight Control of a Fighter Aircraft with a Bio-Inspired, Rotating Empennage using Adaptive Model Predictive Control with Fourier Basis Functions","American Control Conference 2027","pending","Submitted"],
+  ["Constraint-Lifted Sector-Constrained Guidance for Rear-Approach Interception","American Control Conference 2027","pending","Submitted"],
+  ["Admissibility-Preserving Constraint Lifting for Conditional Deadbeat Control of Discrete-Time Nonlinear Systems","American Control Conference 2027","pending","Submitted"],
+  ["Stabilization of the Kapitza Pendulum using Adaptive Predictive Control with Extremum Seeking","American Control Conference 2027","pending","Submitted"],
+  ["Adaptive Predictive Control of Hammerstein Systems with Independently Constrained, Nonlinearly Coupled Inputs","American Control Conference 2027","pending","Submitted"],
+  ["Adaptive Target Tracking Using Extremum-Seeking-Based Command Generation and Predictive Cost Adaptive Control with Position Preview","AIAA SciTech 2027","conference","Accepted"],
+  ["Predictive Cost Adaptive Control with Extremum-Seeking Command Generation for L/D Improvement in Separated Flows","AIAA SciTech 2027","conference","Accepted"],
+  ["Harmonically Driven Control of Flow Separation using Extremum-Seeking-Based Optimization","AIAA SciTech 2027","conference","Accepted"],
+  ["A Numerical Investigation of Extremum-Seeking-Based Command Generation for Adaptively Controlled Systems","IEEE Conference on Decision and Control 2026","conference","Accepted"],
+  ["Adaptive Constraint-Lifting Control with Stability and Invariance Guarantees","IEEE Conference on Decision and Control 2026","conference","Accepted"],
+  ["Sensor-Noise Mitigation in Extremum Seeking Control Using Adaptive Numerical Differentiation","American Control Conference 2026","conference","Conference"],
+  ["Inversion-free Adaptive Control of a Bicopter with Unknown Mass and Inertia","American Control Conference 2026","conference","Conference"],
+  ["Stability Preserving Safe Control of a Bicopter","American Control Conference 2026","conference","Conference"],
+  ["A Numerical Investigation of the Domain of Attraction of the Kapitza Pendulum Using Harmonic and Nonharmonic Base Excitation","American Control Conference 2026","conference","Conference"],
+  ["Extremum Seeking Framework with Vanishing Dither Signal","AIAA SciTech 2026","conference","Conference"],
+  ["Adaptive Control of Dual-Rotor Rotational System with Unknown Geometry and Unknown Inertia","Modeling, Estimation and Control Conference 2025","conference","Conference"],
+  ["Retrospective Cost-based Extremum Seeking Control with Vanishing Perturbation for Online Output Minimization","American Control Conference 2024","conference","Conference"],
+  ["Adaptive Backstepping Control of a Bicopter in Pure Feedback Form with Dynamic Extension","American Control Conference 2024","conference","Conference"],
+  ["Computing Invariant Zeros of a Linear System Using State-Space Realization","American Control Conference 2024","conference","Conference"],
+  ["Adaptive Nonlinear Control of a Bicopter with Unknown Dynamics","American Control Conference 2024","conference","Conference"],
+  ["Circumventing Unstable Zero Dynamics in Input-Output Linearization of Longitudinal Flight Dynamics","AIAA SciTech 2024","conference","Conference"],
+  ["Image Processing Method to Estimate Water Quality Parameter","ICAT 2022","conference","Conference"],
+  ["Computer Vision Technique to Improve the Color Ratio in Estimating the Concentration of Free Chlorine","CSEI 2021","conference","Conference"],
+  ["Air Pollution Software Architecture Design and Modeling: A Peruvian Case","SmartTech-IC 2021","conference","Conference"],
+  ["Performance-based Software Architecture Design and Blockchain as a Service for Peruvian E-government","ICSESS 2021","conference","Conference"],
+  ["Dynamic Extension for Adaptive Backstepping Control of Uncertain Pure-Feedback Systems","IFAC MICNON 2021","conference","Conference"],
+  ["Cyber-physical Cloud System for Monitoring Urban Noise Pollution under IoT Platform","Iberian Journal of Information Systems and Technologies","conference","CV proceedings section"],
+  ["RecyGlass, A Low-cost System for Recycling Glass Bottles in a Distinctive Way","ATDMAE 2020","conference","Conference"],
+  ["Nonlinear Observer Based Control Design for an Under-actuated Compliant Robotic Hand","Australian Control Conference 2016","conference","Conference"]
+];
+
+const publicationList = document.getElementById("publicationList");
+const publicationSearch = document.getElementById("publicationSearch");
+const publicationCount = document.getElementById("publicationCount");
+const filterButtons = document.querySelectorAll(".filter");
+let activeFilter = "all";
+
+function renderPublications() {
+  const query = publicationSearch.value.toLowerCase().trim();
+
+  const filtered = publications.filter(p => {
+    const matchesSearch = p.join(" ").toLowerCase().includes(query);
+    const matchesFilter = activeFilter === "all" || p[2] === activeFilter;
+    return matchesSearch && matchesFilter;
+  });
+
+  publicationList.replaceChildren();
+
+  filtered.forEach(p => {
+    const item = document.createElement("article");
+    item.className = "publication";
+
+    const title = document.createElement("div");
+    title.className = "publication-title";
+    title.textContent = p[0];
+
+    const meta = document.createElement("div");
+    meta.className = "publication-meta";
+    meta.textContent = p[1];
+
+    const status = document.createElement("span");
+    status.className = "publication-status";
+    status.textContent = p[3];
+
+    item.append(title, meta, status);
+    publicationList.appendChild(item);
+  });
+
+  publicationCount.textContent =
+    `Showing ${filtered.length} of ${publications.length} entries`;
+}
+
+publicationSearch.addEventListener("input", renderPublications);
+
+filterButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    activeFilter = button.dataset.filter;
+    filterButtons.forEach(b => b.classList.remove("active"));
+    button.classList.add("active");
+    renderPublications();
+  });
+});
+
+renderPublications();
+
+/* REVEAL ANIMATIONS */
+if ("IntersectionObserver" in window) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {threshold:.08});
+
+  document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+} else {
+  document.querySelectorAll(".reveal").forEach(el => el.classList.add("visible"));
+}
+
+/* ACTIVE NAVIGATION */
+const navLinks = document.querySelectorAll(".nav-links a");
+const trackedSections = [...document.querySelectorAll("main section[id]")];
+
+function updateActiveNavigation() {
+  const scrollPosition = window.scrollY + 160;
+  let currentSection = "home";
+
+  trackedSections.forEach(section => {
+    if (scrollPosition >= section.offsetTop) {
+      currentSection = section.id;
+    }
+  });
+
+  navLinks.forEach(link => {
+    link.classList.toggle(
+      "active",
+      link.getAttribute("href") === "#" + currentSection
+    );
+  });
+}
+
+window.addEventListener("scroll", updateActiveNavigation, {passive:true});
+updateActiveNavigation();
+
+/* DEFENSE VIDEO: LOCAL MP4 WITH YOUTUBE FALLBACK */
+const defenseVideo = document.getElementById("defenseVideo");
+const defensePlayer = document.getElementById("defensePlayer");
+const defenseLabel = document.getElementById("defenseLabel");
+let fallbackActivated = false;
+
+function loadYouTubeFallback() {
+  if (fallbackActivated) return;
+  fallbackActivated = true;
+
+  defenseVideo.remove();
+  defenseLabel.remove();
+
+  const iframe = document.createElement("iframe");
+
+  iframe.title = "Jhon Portella PhD Defense";
+  iframe.src =
+    "https://www.youtube.com/embed/JTGOvGXJPyw" +
+    "?autoplay=1&mute=1&playsinline=1&controls=1&rel=0";
+
+  iframe.allow =
+    "autoplay; encrypted-media; picture-in-picture; fullscreen";
+
+  iframe.referrerPolicy = "strict-origin-when-cross-origin";
+  iframe.allowFullscreen = true;
+
+  defensePlayer.appendChild(iframe);
+}
+
+defenseVideo.addEventListener("error", loadYouTubeFallback);
+defenseVideo.addEventListener("loadeddata", () => {
+  defenseVideo.muted = true;
+  defenseVideo.play().catch(() => {
+    // Browser may require user interaction.
+  });
+});
+
+/* FOOTER */
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+</script>
 </body>
 </html>
